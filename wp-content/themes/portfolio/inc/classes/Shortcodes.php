@@ -1,6 +1,6 @@
 <?php
 /**
- * Components
+ * Shortcodes
  * 
  * @package Portfolio
  * 
@@ -23,7 +23,13 @@ class Shortcodes {
 
   // Intro shortcode
   public function intro_shortcode() {
-    $intro_page = get_page_by_title('Intro');
+    $intro_page_query = new WP_Query([
+      'post_type' => 'page',
+      'title' => 'Intro',
+      'posts_per_page' => 1
+    ]);
+
+    $intro_page = $intro_page_query->have_posts() ? $intro_page_query->posts[0] : null;
 
     if ($intro_page) {
       $content = apply_filters('the_content', $intro_page -> post_content);
@@ -38,7 +44,13 @@ class Shortcodes {
 
   // About Me shortcode
   public function about_me_shortcode() {
-    $about_page = get_page_by_title('About Me');
+    $about_page_query = new WP_Query([
+      'post_type' => 'page',
+      'title' => 'About Me',
+      'posts_per_page' => 1
+    ]);
+
+    $about_page = $about_page_query->have_posts() ? $about_page_query->posts[0] : null;
 
     if ($about_page) {
       $content = apply_filters('the_content', $about_page -> post_content);
@@ -108,7 +120,7 @@ class Shortcodes {
     $posts = get_posts([
       'post_type' => 'work_experience',
       'numberposts' => -1,
-      'meta_key' => 'ends',
+      'meta_key' => 'starts',
       'orderby' => 'meta_value_num',
     ]);
 
@@ -126,7 +138,7 @@ class Shortcodes {
       
       <?php foreach($posts as $post): ?>
         <?php 
-          $title = get_field('title', $post -> ID);
+          $position = get_field('position', $post -> ID);
           $company = get_field('company', $post -> ID);
           $starts = get_field('starts', $post -> ID);
           $ends = get_field('ends', $post -> ID);
@@ -137,13 +149,22 @@ class Shortcodes {
           <div class="circle-indicator absolute -left-[37px] top-2 w-6 h-6 bg-primary border-4 border-white rounded-full"></div>
 
           <div class="speech-bubble relative bg-white text-gray-800 p-4 rounded-lg ml-5">
-              <h3 class="text-lg font-bold text-heading font-primary"><?php echo $title ? esc_html_e($title) : esc_html_e(''); ?></h3>
+              <h3 class="text-lg font-bold text-heading font-primary"><?php echo $position ? esc_html_e($position) : esc_html_e(''); ?></h3>
               
               <div class="px-2">
                 <p class="text-gray-500 font-secondary text-sm"><?php echo $company ? esc_html_e($company) : esc_html_e(''); ?></p>
-                <p class="text-gray-500 text-xs font-secondary"><?php echo $starts ? esc_html_e($starts) : esc_html_e(''); ?> - <?php echo $ends ? esc_html_e($ends) : esc_html_e(''); ?></p>
+                <p class="text-gray-500 text-xs font-secondary">
+                  <?php
+                  if ($starts):
+                    echo esc_html_e($starts) . ' - ';
+                    echo $ends ? esc_html_e($ends) : esc_html_e('Present');
+                  endif;
+                  ?>
+                </p>
     
-                <p class="text-gray-700 mt-2 text-xs font-secondary my-3"><?php echo $description ? esc_html_e($description) : esc_html_e(''); ?></p>
+                <p class="text-gray-700 mt-2 text-xs font-secondary my-3">
+                  <?php echo $description ? nl2br(esc_html($description)) : ''; ?>
+                </p>
               </div>
   
               <!-- Speech Bubble Tail -->
