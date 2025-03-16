@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffde59;
+  --color-secondary: #000000;
+  --font-primary: "Playpen Sans", sans-serif;
+  --font-secondary: "Damion", sans-serif;
+}

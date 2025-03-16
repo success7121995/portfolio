@@ -1,0 +1,123 @@
+/*
+Theme Name: Portfolio
+Theme URI: http://localhost/portfolio
+Author: Stanford Tse
+Description: A custom portfolio theme
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: portfolio
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+.bg-container img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .education-card {
+    height: 160px;
+    background-image: url('./assets/components/noteboard.png');
+    background-size: 360px 160px;
+    background-repeat: no-repeat;
+    transform: rotate(7deg);
+    background-position: right bottom;
+  }
+  
+  @media (min-width: 576px) {
+    .education-card {
+      height: 200px;
+      background-size: 420px 200px;
+    }
+  }
+  
+  /* Navbar */
+  /* Nav Header */
+  #nav-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #nav-menu.open {
+    transform: translateY(0);
+  }
+  
+  @media (min-width: 992px) {
+    #nav-menu {
+      box-shadow: none;
+      transform: translateY(0);
+      transition: none;
+    }
+  }
+  
+  /* Scroll Bar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Blog */
+  .thumbnail-image {
+    height: 200px;
+    width: 320px;
+    background-image: url('./assets/components/noteboard.png');
+    background-size: 320px 200px;
+    background-repeat: no-repeat;
+  }
+  
+  .thumbnail-image.fliped {
+    transform: rotate(8deg);
+  }
+  
+  .blog-card-title-container {
+    height: 80px;
+    width: 300px;
+    background-image: url('./assets/components/brushstroke.png');
+    background-size: 300px 80px;
+    background-repeat: no-repeat;
+  }
+  
+  .blog-card-title-container.fliped {
+    background-image: url('./assets/components/brushstroke-fliped.png');
+    transform: rotate(16deg);
+  }
+  
+  .blog-card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    line-clamp: 2;
+    height: 60px;
+    -webkit-box-orient: vertical;
+  }
+  
+  @media (min-width: 640px) {
+    .blog-card-title-container {
+      height: 100px;
+      width: 260px;
+      background-size: 260px 100px;
+    }
+  
+    .blog-card-title-container.fliped {
+      transform: rotate(12deg);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .thumbnail-image {
+      height: 240px;
+      width: 380px;
+      background-image: url('./assets/components/noteboard.png');
+      background-size: 380px 240px;
+      background-repeat: no-repeat;
+    }
+  
+    .blog-card-title-container {
+      height: 120px;
+      width: 320px;
+      background-size: 320px 120px;
+    }
+  }
