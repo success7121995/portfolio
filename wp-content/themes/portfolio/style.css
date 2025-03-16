@@ -39,17 +39,20 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
   }
   
   #nav-menu.open {
     transform: translateY(0);
+    opacity: 1;
   }
   
-  @media (min-width: 992px) {
+  @media (min-width: 1024px) {
     #nav-menu {
       box-shadow: none;
       transform: translateY(0);
       transition: none;
+      opacity: 1;
     }
   }
   
