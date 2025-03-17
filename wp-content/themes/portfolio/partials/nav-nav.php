@@ -25,6 +25,6 @@
         <li class="text-base font-primary text-white py-3"><a class="navigate-link cursor-pointer hover:text-primary hover:underline hover:font-bold lg:text-black lg:hover:text-black" href="#work-experience">Work Experience</a></li>
         <li class="text-base font-primary text-white py-3"><a class="navigate-link cursor-pointer hover:text-primary hover:underline hover:font-bold lg:text-black lg:hover:text-black" href="#skills">Skills</a></li>
         <li class="text-base font-primary text-white py-3"><a class="navigate-link cursor-pointer hover:text-primary hover:underline hover:font-bold lg:text-black lg:hover:text-black" href="#showcases">Showcases</a></li>
-        <li class="text-base font-primary text-white py-3"><a class="cursor-pointer hover:text-primary hover:underline hover:font-bold lg:text-black lg:hover:text-black" href="/blog.html">Blog</a></li>
+        <li class="text-base font-primary text-white py-3"><a class="cursor-pointer hover:text-primary hover:underline hover:font-bold lg:text-black lg:hover:text-black" href="/portfolio/blog">Blog</a></li>
     </ul>
 </nav>
